@@ -6,6 +6,7 @@ import Pic from '../images/pic02.jpeg';
 
 
 const CreateItem = () => {
+    const [items, setItems] = useState([]);
     const {push} = useHistory();
     const [form, setForm] = useState({
         name: '',
@@ -13,6 +14,9 @@ const CreateItem = () => {
         description: '',
     });
 
+    // const addItem = () => {
+    //     setItems( ...items, )
+    // }
     const handleChange = (e) => {
        setForm({
            ...form,
@@ -20,12 +24,14 @@ const CreateItem = () => {
        });
     }
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
             axiosWithAuth()
             .post('/users', form)
             .then(resp => {
                 console.log(resp);
+                // addItem(form);
                 push('/my-items');
             })
             .catch(err => {
@@ -82,7 +88,7 @@ const CreateItem = () => {
 export default CreateItem;
 
 const ComponentContainer = styled.div`
-    background-color: #EE8938;
+    background-color: #386FA4;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,7 +102,7 @@ const ComponentContainer = styled.div`
     height: 100vh;
     width: 100%;
     /* position: fixed; */
-    
+
 
     h1{
     font-size: 60px;
@@ -110,7 +116,7 @@ const ComponentContainer = styled.div`
     .form-container {
         display: flex;
         justify-content: space-between;
-        align-items: space-around;
+        align-items: flex-start;
         padding: 50px;
         width: 80%;
     }
@@ -131,7 +137,7 @@ const ComponentContainer = styled.div`
         border-radius: 10%;
         color: white;
         padding: 15px 10px;
-        margin-left: 100px;
+        margin-left: 200px;
     }
 
     img{
