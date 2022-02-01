@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import axiosWithAuth from '../utils/axiosWithAuth';
+import { useHistory, useParams } from 'react-router-dom';
+
 
 
 
 const MyItems = () => {
     const [items, setItems ] = useState([]);
+    const { push } = useHistory();
+    const { id } = useParams();
    
     useEffect(() => {
-        axios.get('https://reqres.in/api/orders')
+        axiosWithAuth()
+        .get('/orders')
         .then(resp => {
             console.log(resp);
             setItems(resp.data.data);
@@ -17,6 +22,24 @@ const MyItems = () => {
             console.log(err);
         })
     }, []);
+
+    const deleteItem = (id) => {
+        setItems(items.filter(item =>(item.id !== Number(id))));
+    }
+
+    const handleDelete = (id) => {
+        axiosWithAuth()
+        .delete(`/orders/${id}`)
+        .then(resp => {
+            deleteItem(id);
+            console.log(resp);
+            // setItems(resp.data);
+            push('/my-items');
+        })
+        .catch(err => {
+            console.log(err.response);
+        })
+    }
 
     return (
         <ComponentContainer>        
@@ -31,6 +54,7 @@ const MyItems = () => {
                                 <h2>{item.name}</h2>
                                 <h3>Price:{item.price}</h3>
                                 <p>Description:{item.description}</p>
+                                <button onClick={() => {handleDelete(item.id)}}>Delete</button>
                             </div>
                             )
                     })
@@ -45,13 +69,13 @@ const MyItems = () => {
 export default MyItems;
 
 const ComponentContainer = styled.div`
-    background-color: #EB3436;
+    background-color: #386FA4;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: auto;
-    font-family: sans-serif;
+    font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     font-weight: 400;
     font-style: normal;
@@ -71,6 +95,7 @@ const ComponentContainer = styled.div`
     }
     p{
         color: white;
+        font-weight: bold;
     }
     .all-items{
         display: flex;
@@ -87,10 +112,16 @@ const ComponentContainer = styled.div`
         margin: 10px;
         padding: 20px;
         width: 20%;
+        background-color: #84D2F6;
     }
     img{
         width: 100px;
         height: 100px;
-        border-radius: 100%;
+        border: #386FA4 solid 1px;
+    }
+
+    button {
+        border-radius: 10%;
+        font-size: 1rem;
     }
 `

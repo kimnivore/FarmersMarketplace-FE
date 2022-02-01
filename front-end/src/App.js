@@ -17,7 +17,6 @@ function App() {
           <NavStyle>
             <Link to='/' className='navlink'>Home</Link>
             <Link to='/signup' className='navlink'>Sign Up</Link>
-            <Link to='/login' className='navlink'>Login</Link>
             <Link to='/create-item' className='navlink'>Create Item</Link>
             <Link to='/my-items' className='navlink'>My Items</Link>
             <Link to='/sell-items' className='navlink'>Marketplace</Link>
@@ -31,9 +30,6 @@ function App() {
           <Route path='/create-item' component={CreateItem}/>
           <Route path='/signup' component={UserSignUp}/>
           <Route path='/login' component={Home} />
-          
-          
-          
           <Route exact path='/' component={Home} />
         </Switch>
       </AppContainer>

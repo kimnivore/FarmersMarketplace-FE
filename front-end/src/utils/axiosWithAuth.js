@@ -7,7 +7,7 @@ const axiosWithAuth = () => {
         headers: {
             authorization: token
         },
-        baseURL: 'https://reqres.in/api/orders'
+        baseURL: 'https://reqres.in/api/'
     })
 }
 
