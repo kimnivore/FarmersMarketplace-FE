@@ -1,7 +1,7 @@
 //African Marketplace Create Account Page
 import React from 'react'
 
-function CreateAccount()   {
+function Home()   {
 
     return (
         <div className = 'HomePage'>
@@ -15,4 +15,4 @@ function CreateAccount()   {
     )
 }
 
-export default CreateAccount;
+export default Home;

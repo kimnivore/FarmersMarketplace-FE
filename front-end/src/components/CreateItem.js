@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 //import axiosWithAuth from '../utils/axiosWithAuth';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Pic from '../images/pic02.jpeg';
 import axios from 'axios';
 
 const CreateItem = () => {
-    const navigate = useNavigate();
+    const {push} = useHistory();
     const [form, setForm] = useState({
         name: '',
         price: '',
@@ -22,10 +22,10 @@ const CreateItem = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://reqres.in/api/orders', form)
+        axios.post('https://backend-african-marketplace.herokuapp.com/', form)
             .then(resp => {
                 console.log(resp);
-                navigate('/my-items');
+                push('/my-items');
             })
             .catch(err => {
                 console.log(err);
