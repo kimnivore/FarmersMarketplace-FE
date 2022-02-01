@@ -17,15 +17,15 @@ function App() {
           <NavStyle>
             <Link to='/' className='navlink'>Home</Link>
             <Link to='/signup' className='navlink'>Sign Up</Link>
-            <Link to='/create-item' className='navlink'>Create Item</Link>
+            <Link to='/create-item' className='navlink'>Create Listing</Link>
             <Link to='/my-items' className='navlink'>My Items</Link>
-            <Link to='/sell-items' className='navlink'>Marketplace</Link>
+            <Link to='/marketplace' className='navlink'>Marketplace</Link>
             <Link to='/logout' className='navlink'>Logout</Link>
           </NavStyle>
         </HeaderStyle>
         <Switch>
           <Route path='/logout' component={Logout} />
-          <Route path='/sell-items' />
+          <Route path='/marketplace' />
           <Route path='/my-items' component={MyItems} />
           <Route path='/create-item' component={CreateItem}/>
           <Route path='/signup' component={UserSignUp}/>

@@ -4,8 +4,6 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import { useHistory, useParams } from 'react-router-dom';
 
 
-
-
 const MyItems = () => {
     const [items, setItems ] = useState([]);
     const { push } = useHistory();
@@ -32,8 +30,6 @@ const MyItems = () => {
         .delete(`/orders/${id}`)
         .then(resp => {
             deleteItem(id);
-            console.log(resp);
-            // setItems(resp.data);
             push('/my-items');
         })
         .catch(err => {
@@ -41,25 +37,33 @@ const MyItems = () => {
         })
     }
 
+    const handleAdd = () => {
+        push('/create-item');
+    }
+
     return (
         <ComponentContainer>        
-        <div>
             <h1>My Items</h1>
-            <div className='all-items'>
-                {
-                    items.map(item => {
-                        return (
-                            <div className='item' key={item.id}>
-                                <img alt='' src={item.img}/>
-                                <h2>{item.name}</h2>
-                                <h3>Price:{item.price}</h3>
-                                <p>Description:{item.description}</p>
-                                <button onClick={() => {handleDelete(item.id)}}>Delete</button>
-                            </div>
-                            )
-                    })
-                }
-            </div>
+            <div className='body'>
+                <div >
+                    <button className='button' onClick={() => {handleAdd()}}>Add New Item</button>
+                </div>
+                <div className='all-items'>
+                    {
+                        items.map(item => {
+                            return (
+                                <div className='item' key={item.id}>
+                                    <img alt='' src={item.img}/>
+                                    <h2>{item.name}</h2>
+                                    <h3>Price:{item.price}</h3>
+                                    <p>Description:{item.description}</p>
+                                    <button onClick={() => {handleDelete(item.id)}}>Delete</button>
+                                </div>
+                                )
+                        })
+                    }
+                </div>
+                
         </div>
         </ComponentContainer>
 
@@ -101,6 +105,8 @@ const ComponentContainer = styled.div`
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
+        width: 80%;
     }
     .item{
         border: 1px black solid;
@@ -111,7 +117,7 @@ const ComponentContainer = styled.div`
         align-items: center;
         margin: 10px;
         padding: 20px;
-        width: 20%;
+        width: 25%;
         background-color: #84D2F6;
     }
     img{
@@ -124,4 +130,38 @@ const ComponentContainer = styled.div`
         border-radius: 10%;
         font-size: 1rem;
     }
+    .body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+   
+   .button{
+        min-width: 130px;
+        height: 40px;
+        color: #133C55;
+        padding: 5px 10px;
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 5px;
+        border: none;
+        background: #F4B860;
+        box-shadow: 0 5px #ffd819;
+        margin-bottom: 40px;
+        }
+    .button:hover {
+        box-shadow: 0 3px #ffd819;
+        top: 1px;
+        }
+    .button:active {
+        box-shadow: 0 0 #ffd819;
+        top: 5px;
+}
 `
