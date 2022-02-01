@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import axiosWithAuth from '../utils/axiosWithAuth';
+// import axiosWithAuth from '../utils/axiosWithAuth';
+import axios from 'axios';
 
 function Home()   {
 
@@ -9,9 +10,9 @@ function Home()   {
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''
-    })
+    });
 
-    const [error, setError] = useState('');
+    // const [error, setError] = useState('');
 
     const handleCreate = () => {
         push('/signup');
@@ -26,16 +27,15 @@ function Home()   {
 
    const handleSubmit = (e) => {
        e.preventDefault();
-       axiosWithAuth()
-       .post('/users', credentials)
+       axios.post('https://backend-african-marketplace.herokuapp.com/api/auth/login', credentials)
        .then(resp => {
            localStorage.setItem('username', resp.data.username);
            localStorage.setItem('password', resp.data.password);
+           localStorage.setItem('token', resp.data.token);
            push('/my-items');
        })
        .catch(err => {
            console.log(err);
-           setError(err.response.data.error);
        })
    }
 
@@ -63,7 +63,7 @@ function Home()   {
                         </label>
                         <button className = "LoginButton">Login</button>
                     </form>
-                    {error && <p>{error}</p>}
+                    {/* {error && <p>{error}</p>} */}
                     <div className = "buttons">
                         <button onClick={handleCreate} className = "CreateAccountButton">Create Account</button>
                     </div>

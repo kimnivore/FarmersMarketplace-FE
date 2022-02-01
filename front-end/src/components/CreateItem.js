@@ -6,7 +6,7 @@ import Pic from '../images/pic02.jpeg';
 
 
 const CreateItem = () => {
-    const [items, setItems] = useState([]);
+    // const [items, setItems] = useState([]);
     const {push} = useHistory();
     const [form, setForm] = useState({
         name: '',
