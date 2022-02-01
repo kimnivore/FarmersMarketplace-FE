@@ -13,9 +13,7 @@ function UserSignUp()   {
 
     const [error, setError] = useState('');
 
-    const handleCreate = () => {
-        push('/signup');
-    }
+
     const handleChange = (e) => {
         setCredentials({
             ...credentials,
@@ -26,16 +24,15 @@ function UserSignUp()   {
        const handleSubmit = (e) => {
            e.preventDefault();
            axiosWithAuth()
-           .post('/users', credentials)
+           .post('/api/auth/register', credentials)
            .then(resp => {
                localStorage.setItem('username', resp.data.username);
                localStorage.setItem('password', resp.data.password);
                localStorage.setItem('token', resp.data.token);
-               push('/my-items');
+               push('/marketplace');
            })
            .catch(err => {
                console.log(err);
-               setError(err.response.data.error);
            })
        }
 
