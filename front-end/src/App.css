@@ -37,33 +37,71 @@
   }
 }
 
-.HomePage .AccountPage{
-  /* background-image: url(./images/orangeombre.jpg); */
+.HomePage{
+    background-image: url(./images/orangeombre.jpg); 
+    height: 100vh;
+    width: 100%;
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 
 .Title{
-  font-size: 2.5rem;
+  padding:2%;
+  font-size: 3rem;
   font-family: 'Roboto Mono', monospace;
   
 }
 .Intro{
-  font-size: 2rem;
+  margin:8%;
+  margin-bottom:0%;
+  padding-left:22%;
+  padding-right:20%;
+  font-size: 2.5rem;
   font-family: 'Roboto Mono', monospace;
 }
 
 .Instructions{
-  font-size: 1.5rem;
+  margin-left: 12%;
+  padding-left:11%;
+  padding-top:2%;
+  font-size: 2rem;
   font-family: 'Roboto Mono', monospace;
+  display:flex;
+  flex-direction:row;
 }
 
 .TextBox{
+  
   font-family: 'Roboto Mono', monospace;
 }
 
-.CreateAccount{
+.CreateAccountButton{
+  display:flex;
+  flex-direction:row;
   background-color:black;
   color:white;
-  border-radius: 5rem;
-  font-size: 1rem;
+  border-radius: 50px;
+  font-size: 1.75rem;
   font-family: 'Roboto Mono', monospace;
+  margin-left:27%;
+  padding:1.5rem 2rem ;
+  border: none;
+}
+
+.buttons{
+  display:flex;
+  margin-top:5%;
+}
+
+.LoginButton{
+  display:flex;
+  flex-direction:row;
+  background-color:black;
+  color:white;
+  border-radius: 50px;
+  font-size: 1.75rem;
+  font-family: 'Roboto Mono', monospace;
+  margin-left:3%;
+  padding:1.5rem 6.8rem ;
+  border: none;
 }
