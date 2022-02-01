@@ -12,20 +12,20 @@ function App() {
         <HeaderStyle>
           <h2> African Market Place </h2>
           <NavStyle>
-            <Link to='/create-account' className='navlink'>Create Account</Link>
-            <Link to='/signup' className='navlink'>User Sign Up</Link>
-            <Link to='/create-item' className='navlink'>Create An Item</Link>
-            <Link to='/sell-items' className='navlink'>Items For Sale</Link>
+            <Link to='/signup' className='navlink'>Sign Up</Link>
+            <Link to='/login' className='navlink'>Login</Link>
+            <Link to='/create-item' className='navlink'>Create Item</Link>
             <Link to='/my-items' className='navlink'>My Items</Link>
+            <Link to='/sell-items' className='navlink'>Marketplace</Link>
           </NavStyle>
         </HeaderStyle>
         <Routes>
-          <Route path='/' />
-          <Route path='/login' />
-          <Route path='/signup' />
-          <Route path='/create-item' element={<CreateItem />}/>
-          <Route path='/my-items' element={<MyItems />} />
-          <Route path='/sell-items' />
+          <Route exact path='/' />
+          <Route exact path='/login' />
+          <Route exact path='/signup' />
+          <Route exact path='/create-item' element={<CreateItem />}/>
+          <Route exact path='/my-items' element={<MyItems />} />
+          <Route exact path='/sell-items' />
         </Routes>
       </AppContainer>
   );

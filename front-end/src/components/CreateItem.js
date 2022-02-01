@@ -87,14 +87,14 @@ const ComponentContainer = styled.div`
     align-items: center;
     justify-content: center;
     margin: auto;
-    font-family: -apple-system,BlinkMacSystemFont,sans-serif;
-    font-size: 1.5rem;
+    font-family: sans-serif;
+    font-size: 1rem;
     font-weight: 400;
     font-style: normal;
     text-decoration: none;
     height: 100vh;
     width: 100%;
-    position: fixed;
+    /* position: fixed; */
     
 
     h1{
@@ -103,6 +103,7 @@ const ComponentContainer = styled.div`
     padding: 20px;
     margin: auto;
     width: 100%;
+    align-items: center;
     }
 
     .form-container {
@@ -126,7 +127,7 @@ const ComponentContainer = styled.div`
     button{
         font-size: 16px;
         background-color: black;
-        border-radius: 35%;
+        border-radius: 100%;
         color: white;
         padding: 15px 50px;
         margin: 20px;
