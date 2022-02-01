@@ -22,7 +22,7 @@ const CreateItem = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://backend-african-marketplace.herokuapp.com/', form)
+        axios.post('https://backend-african-marketplace.herokuapp.com/api', form)
             .then(resp => {
                 console.log(resp);
                 push('/my-items');

@@ -7,6 +7,7 @@ import Home from './components/Home';
 import UserSignUp from './components/UserSignUp';
 import CreateItem from './components/CreateItem';
 import MyItems from './components/MyItems';
+import Logout from './components/Logout';
 
 function App() {
   return (
@@ -20,15 +21,20 @@ function App() {
             <Link to='/create-item' className='navlink'>Create Item</Link>
             <Link to='/my-items' className='navlink'>My Items</Link>
             <Link to='/sell-items' className='navlink'>Marketplace</Link>
+            <Link to='/logout' className='navlink'>Logout</Link>
           </NavStyle>
         </HeaderStyle>
         <Switch>
+          <Route path='/logout' component={Logout} />
+          <Route path='/sell-items' />
+          <Route path='/my-items' component={MyItems} />
+          <Route path='/create-item' component={CreateItem}/>
+          <Route path='/signup' component={UserSignUp}/>
+          <Route path='/login' component={Home} />
+          
+          
+          
           <Route exact path='/' component={Home} />
-          <Route exact path='/login' component={Home} />
-          <Route exact path='/signup' component={UserSignUp}/>
-          <Route exact path='/create-item' component={CreateItem}/>
-          <Route exact path='/my-items' component={MyItems} />
-          <Route exact path='/sell-items' />
         </Switch>
       </AppContainer>
   );
