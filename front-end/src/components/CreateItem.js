@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-//import axiosWithAuth from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Pic from '../images/pic02.jpeg';
-import axios from 'axios';
+
 
 const CreateItem = () => {
     const {push} = useHistory();
@@ -22,7 +22,8 @@ const CreateItem = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://backend-african-marketplace.herokuapp.com/', form)
+            axiosWithAuth()
+            .post('/users', form)
             .then(resp => {
                 console.log(resp);
                 push('/my-items');
@@ -37,7 +38,7 @@ const CreateItem = () => {
     return (
         <ComponentContainer>
             <div>
-                <h1>Create An Item</h1>
+                <h1>Create Item</h1>
                 <form onSubmit={handleSubmit}>
                 <div className='form-container'>
                     <img src={Pic} alt='sample pic'/>
@@ -87,7 +88,7 @@ const ComponentContainer = styled.div`
     align-items: center;
     justify-content: center;
     margin: auto;
-    font-family: sans-serif;
+    font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     font-weight: 400;
     font-style: normal;
@@ -127,10 +128,10 @@ const ComponentContainer = styled.div`
     button{
         font-size: 16px;
         background-color: black;
-        border-radius: 100%;
+        border-radius: 10%;
         color: white;
-        padding: 15px 50px;
-        margin: 20px;
+        padding: 15px 10px;
+        margin-left: 100px;
     }
 
     img{

@@ -1,4 +1,8 @@
 //African Marketplace Create Account Page
+
+//On this page, you may want to add in the login form(username & password)...since this will be used for both the home page and login page
+
+
 import React from 'react'
 
 function Home()   {
