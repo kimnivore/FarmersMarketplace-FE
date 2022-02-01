@@ -37,7 +37,7 @@
   }
 }
 
-.HomePage{
+.HomePage, .AccountPage{
     background-image: url(./images/orangeombre.jpg); 
     height: 100vh;
     width: 100%;
@@ -70,11 +70,6 @@
   flex-direction:row;
 }
 
-.TextBox{
-  
-  font-family: 'Roboto Mono', monospace;
-}
-
 .CreateAccountButton{
   display:flex;
   flex-direction:row;
@@ -104,4 +99,54 @@
   margin-left:3%;
   padding:1.5rem 6.8rem ;
   border: none;
+}
+
+
+
+.AccountPage{
+  display:flex;
+  justify-content: space-evenly;
+}
+
+.User{
+  display:flex;
+  flex-direction: column;
+}
+
+
+.title{
+  padding-top:20%;
+  font-size: 2.5rem;
+  font-family: 'Roboto Mono', monospace;
+  padding-bottom: 10%;
+}
+
+.TextBox{
+  
+  margin-left:-40%;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.Name{
+  margin-left:13%;
+  border:none;
+  padding:2%;
+  padding-right:10%;
+}
+
+.Password{
+  border:none;
+  padding:2%;
+  padding-right:10%;
+}
+
+.CreateAccountButton2{
+  background-color:black;
+  color:white;
+  border-radius: 50px;
+  font-size: 1.75rem;
+  font-family: 'Roboto Mono', monospace;
+  padding:1rem 2rem ;
+  border: none;
+  margin-top:20%;
 }

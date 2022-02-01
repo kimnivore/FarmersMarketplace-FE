@@ -7,19 +7,14 @@ function UserSignUp()   {
     return (
         <div className = 'AccountPage'>
 
-            <div className = 'Owner'>
-                <h1 className = 'titles'>Owner Sign Up</h1>
-                    <h2 className = 'TextBox'>Name: </h2>
-                    <h2 className = 'TextBox'>Password: </h2>
-                        <button className = "CreateAccountButton">Create Account</button>
+            <div className = 'User'>
+                <h1 className = 'title'>Sign Up Below</h1>
+                    <h2 className = 'TextBox'>Name: <input className = "Name"></input> </h2>
+                    
+                    <h2 className = 'TextBox'>Password: <input className = "Password"></input> </h2>
+                        <button className = "CreateAccountButton2">Create Account</button>
             </div>
 
-            <div className = 'User'>
-                <h1 className = 'titles'>User Sign Up</h1>
-                    <h2 className = 'TextBox'>Name: </h2>                
-                    <h2 className = 'TextBox'>Password: </h2>                 
-                        <button className = "CreateAccountButton">Create Account</button>
-            </div>
 
         </div>
             
