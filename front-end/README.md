@@ -30,6 +30,7 @@ Deployed URL: https://front-end-rho-gold.vercel.app/
 Front End React I Engineer***
 
 Github: https://github.com/spearoxi
+
 LinkedIn: https://www.linkedin.com/in/david-j-spear/
 
 
@@ -37,6 +38,7 @@ LinkedIn: https://www.linkedin.com/in/david-j-spear/
 Front End Architect React II Engineer***
 
 Github: https://github.com/kimnivore
+
 LinkedIn: https://www.linkedin.com/in/kimnguyenshoung/
 
 
@@ -44,6 +46,7 @@ LinkedIn: https://www.linkedin.com/in/kimnguyenshoung/
 Backend Engineer***
 
 Github: https://github.com/lailaarkadan
+
 LinkedIn: https://www.linkedin.com/in/laila-arkadan-27337a74/
 
 
@@ -51,6 +54,7 @@ LinkedIn: https://www.linkedin.com/in/laila-arkadan-27337a74/
 Backend Engineer***
 
 Github: https://github.com/peterdavidconley
+
 LinkedIn: https://www.linkedin.com/in/peter-conley/
 
 
@@ -58,4 +62,5 @@ LinkedIn: https://www.linkedin.com/in/peter-conley/
 Backend Engineer***
 
 Github: https://github.com/hmzsjd
+
 LinkedIn: https://www.linkedin.com/in/hmzsjd/
