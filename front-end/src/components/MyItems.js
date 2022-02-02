@@ -21,21 +21,21 @@ const MyItems = () => {
         })
     }, []);
 
-    const deleteItem = (id) => {
-        setItems(items.filter(item =>(item.id !== Number(id))));
-    }
+    // const deleteItem = (id) => {
+    //     setItems(items.filter(item =>(item.item_id !== Number(id))));
+    // }
 
-    const handleDelete = (id) => {
-        axiosWithAuth()
-        .delete(`/orders/${id}`)
-        .then(resp => {
-            deleteItem(id);
-            push('/my-items');
-        })
-        .catch(err => {
-            console.log(err.response);
-        })
-    }
+    // const handleDelete = (id) => {
+    //     axiosWithAuth()
+    //     .delete(`/orders/${id}`)
+    //     .then(resp => {
+    //         deleteItem(id);
+    //         push('/my-items');
+    //     })
+    //     .catch(err => {
+    //         console.log(err.response);
+    //     })
+    // }
 
     const handleAdd = () => {
         push('/create-item');
@@ -55,10 +55,10 @@ const MyItems = () => {
                                 <div className='item' key={item.item_id}>
                                     {/* <img alt='' src={item.img}/> */}
                                     <h2>{item.item_name}</h2>
-                                    <h3>Category:{item.item_category}</h3>
-                                    <h3>Price:{item.item_price}</h3>
-                                    <p>Description:{item.item_description}</p>
-                                    <button onClick={() => {handleDelete(item.id)}}>Delete</button>
+                                    <h3>Category: {item.item_category}</h3>
+                                    <h3>Price: ${item.item_price}</h3>
+                                    <p>Description: {item.item_description}</p>
+                                    {/* <button onClick={() => {handleDelete(item.id)}}>Delete</button> */}
                                 </div>
                                 )
                         })
@@ -97,9 +97,13 @@ const ComponentContainer = styled.div`
         color: white;
         align-items: center;
     }
+    h2 {
+        text-decoration: underline;
+    }
     p{
         color: white;
         font-weight: bold;
+        font-size: 1rem;
     }
     .all-items{
         display: flex;

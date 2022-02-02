@@ -17,10 +17,6 @@ function UserSignUp()   {
     const { push } = useHistory();
     const [formValues, setFormValues] = useState(initialFormValues);
     const [formErrors, setFormErrors] = useState(initialFormErrors);
-    // const [credentials, setCredentials] = useState({
-    //     username: '',
-    //     password: ''
-    // })
 
     const handleChange = (e) => {
         setFormValues({
