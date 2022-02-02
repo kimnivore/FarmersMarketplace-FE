@@ -27,16 +27,15 @@ const CreateItem = () => {
       })
     }, []);
    
-    const addItem = () => {
-        setItems({ ...items, item })
-    }
     const handleChange = (e) => {
        setItem({
            ...item,
            [e.target.name]: e.target.value
        });
     }
-
+    const addItem = () => {
+        setItems({ ...items, item })
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
             axiosWithAuth()

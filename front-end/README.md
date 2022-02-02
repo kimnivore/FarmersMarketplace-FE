@@ -21,7 +21,7 @@ Sauti Africa empowers small business owners, particularly women, to improve thei
 
 ### *Heroku API*
 
-Deployed URL: 
+Deployed URL: https://front-end-rho-gold.vercel.app/
 
 
 # *Meet the Team*
