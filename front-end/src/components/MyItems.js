@@ -11,10 +11,10 @@ const MyItems = () => {
    
     useEffect(() => {
         axiosWithAuth()
-        .get('/orders')
+        .get('/api/auth/users')
         .then(resp => {
             console.log(resp);
-            setItems(resp.data.data);
+            setItems(resp.data);
         })
         .catch(err => {
             console.log(err);
@@ -66,7 +66,6 @@ const MyItems = () => {
                 
         </div>
         </ComponentContainer>
-
     )
 }
 
@@ -84,8 +83,9 @@ const ComponentContainer = styled.div`
     font-weight: 400;
     font-style: normal;
     text-decoration: none;
-    height: 100vh;
+    height: 100%
     width: 100%;
+    border: 1px solid black;
 
     h1{
         font-size: 60px;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
@@ -6,32 +6,44 @@ import Pic from '../images/pic02.jpeg';
 
 
 const CreateItem = () => {
-    // const [items, setItems] = useState([]);
     const {push} = useHistory();
-    const [form, setForm] = useState({
+    const [item, setItem] = useState({
         name: '',
         price: '',
         description: '',
     });
 
-    // const addItem = () => {
-    //     setItems( ...items, )
-    // }
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+      axiosWithAuth()
+      .get('/api/auth/users')
+      .then(resp => {
+          console.log(resp);
+          setItems(resp.data);
+      })
+      .catch(err => {
+          console.log(err);
+      })
+    }, []);
+   
+    const addItem = () => {
+        setItems({ ...items, item })
+    }
     const handleChange = (e) => {
-       setForm({
-           ...form,
+       setItem({
+           ...item,
            [e.target.name]: e.target.value
        });
     }
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
             axiosWithAuth()
-            .post('/users', form)
+            .post('', item)
             .then(resp => {
                 console.log(resp);
-                // addItem(form);
+                addItem();
                 push('/my-items');
             })
             .catch(err => {
@@ -89,17 +101,18 @@ export default CreateItem;
 const ComponentContainer = styled.div`
     background-color: #386FA4;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    /* align-items: center;
+    justify-content: center; */
     margin: auto;
     font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     font-weight: 400;
     font-style: normal;
     text-decoration: none;
-    height: 100vh;
-    width: 100%;
+    min-width: 100%;
+    min-height: 100vh;
+    border: 1px solid black;
 
     h1{
     font-size: 60px;

@@ -42,7 +42,7 @@ function Home()   {
         <div className='HomePage'>
             <h1 className='Title'>African Market Place</h1>
                 <p className='Intro'>INTERESTED IN BUYING OR SELLING GOODS IN YOUR AREA?</p>
-                    <h2 className='Instructions'>Login Or Open An Account</h2>
+                    <h2 className='Instructions'>Login Or Create an Account</h2>
                     <form onSubmit={handleSubmit}>
                         <label>Username:
                             <input
