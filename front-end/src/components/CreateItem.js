@@ -17,7 +17,7 @@ const CreateItem = () => {
 
     useEffect(() => {
       axiosWithAuth()
-      .get('/api/auth/users')
+      .get('/api/items')
       .then(resp => {
           console.log(resp);
           setItems(resp.data);
@@ -39,7 +39,7 @@ const CreateItem = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
             axiosWithAuth()
-            .post('', item)
+            .post('/api/items', item)
             .then(resp => {
                 console.log(resp);
                 addItem();
@@ -65,6 +65,15 @@ const CreateItem = () => {
                             <input
                                 type='text'
                                 name='name'
+                                onChange={handleChange}
+                            />
+                        </label>
+                    </div>
+                    <div className='label'>
+                        <label>Category:
+                            <input
+                                type='text'
+                                name='category'
                                 onChange={handleChange}
                             />
                         </label>

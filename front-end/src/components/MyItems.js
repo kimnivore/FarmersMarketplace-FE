@@ -11,7 +11,7 @@ const MyItems = () => {
    
     useEffect(() => {
         axiosWithAuth()
-        .get('/api/auth/users')
+        .get('/api/items')
         .then(resp => {
             console.log(resp);
             setItems(resp.data);
@@ -52,11 +52,12 @@ const MyItems = () => {
                     {
                         items.map(item => {
                             return (
-                                <div className='item' key={item.id}>
-                                    <img alt='' src={item.img}/>
-                                    <h2>{item.name}</h2>
-                                    <h3>Price:{item.price}</h3>
-                                    <p>Description:{item.description}</p>
+                                <div className='item' key={item.item_id}>
+                                    {/* <img alt='' src={item.img}/> */}
+                                    <h2>{item.item_name}</h2>
+                                    <h3>Category:{item.item_category}</h3>
+                                    <h3>Price:{item.item_price}</h3>
+                                    <p>Description:{item.item_description}</p>
                                     <button onClick={() => {handleDelete(item.id)}}>Delete</button>
                                 </div>
                                 )

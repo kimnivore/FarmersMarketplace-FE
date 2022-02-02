@@ -1,31 +1,34 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import validation from './validations/validation';
+
+const initialFormValues = {
+    username: '',
+    password: ''
+};
+const initialFormErrors = {
+    username: '',
+    password: ''
+};
 
 function Home()   {
-
     const { push } = useHistory();
+    const [formValues, setFormValues] = useState(initialFormValues);
+    const [formErrors, setFormErrors] = useState(initialFormErrors);
 
-    const [credentials, setCredentials] = useState({
-        username: '',
-        password: ''
-    });
-
-    const handleCreate = () => {
-        push('/signup');
+     const handleChange = (e) => {
+        setFormValues({
+            ...formValues,
+            [e.target.name]: e.target.value
+        })
     }
 
-   const handleChange = (e) => {
-    setCredentials({
-        ...credentials,
-        [e.target.name]: e.target.value
-    })
-   }
-
-   const handleSubmit = (e) => {
-       e.preventDefault();
-       axiosWithAuth()
-       .post('/api/auth/login', credentials)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setFormErrors(validation(formValues))
+        axiosWithAuth()
+       .post('/api/auth/login', formValues)
        .then(resp => {
            console.log(resp);
            localStorage.setItem('username', resp.data.username);
@@ -35,8 +38,14 @@ function Home()   {
        })
        .catch(err => {
            console.log(err);
+           alert('A valid username and password are required')
        })
-   }
+    }
+
+    const handleCreate = () => {
+        push('/signup');
+    }
+
 
     return (
         <div className='HomePage'>
@@ -48,17 +57,19 @@ function Home()   {
                             <input
                                 type='text'
                                 name='username'
-                                value={credentials.username}
+                                value={formValues.username}
                                 onChange={handleChange}
                             />
+                            {formErrors.username && <p>{formErrors.username}</p>}
                         </label>
                         <label>Password:
                             <input
                                 type='password'
                                 name='password'
-                                value={credentials.password}
+                                value={formValues.password}
                                 onChange={handleChange}
                             />
+                            {formErrors.password && <p>{formErrors.password}</p>}
                         </label>
                         <button className = "LoginButton">Login</button>
                     </form>
