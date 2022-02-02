@@ -2,12 +2,16 @@ import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import './App.css';
 import styled from 'styled-components';
+import Banner from './images/banner.jpg';
+
+import PrivateRoute from './components/PrivateRoute';
 
 import Home from './components/Home';
 import UserSignUp from './components/UserSignUp';
 import CreateItem from './components/CreateItem';
 import MyItems from './components/MyItems';
 import Logout from './components/Logout';
+
 
 function App() {
   return (
@@ -25,9 +29,9 @@ function App() {
         </HeaderStyle>
         <Switch>
           <Route path='/logout' component={Logout} />
-          <Route path='/marketplace' />
-          <Route path='/my-items' component={MyItems} />
-          <Route path='/create-item' component={CreateItem}/>
+          <PrivateRoute path='/marketplace' />
+          <PrivateRoute path='/my-items' component={MyItems} />
+          <PrivateRoute path='/create-item' component={CreateItem}/>
           <Route path='/signup' component={UserSignUp}/>
           <Route path='/login' component={Home} />
           <Route exact path='/' component={Home} />
@@ -40,24 +44,26 @@ export default App;
 
 const AppContainer = styled.div`
   height: 100%
+  border: 1px solid black;
 `
 
 const HeaderStyle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 10px
-
+  padding: 20px;
+  background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${Banner});
 `
 const NavStyle = styled.div`
   .navlink{
     margin: 20px;
-    color: gray;
+    color: black;
     text-decoration: none;
+    font-weight: bold;
   }
 
   .navlink:focus{
-    color: black;
+    color: gray;
     font-weight: bold;
   }
 `

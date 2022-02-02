@@ -47,20 +47,19 @@ h1{
 
 .HomePage, .AccountPage{
     background-image: url(./images/orangeombre.jpg); 
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-repeat:no-repeat;
     background-size:cover;
+    border: 1px solid black;
 }
 
 .Title{
-  padding:2%;
   font-size: 3rem;
   font-family: 'Roboto Mono', monospace;
   
 }
 .Intro{
-  margin:8%;
   margin-bottom:0%;
   padding-left:22%;
   padding-right:20%;
@@ -69,7 +68,7 @@ h1{
 }
 
 .Instructions{
-  margin-left: 12%;
+  margin-left: 20%;
   padding-left:11%;
   padding-top:2%;
   font-size: 2rem;
