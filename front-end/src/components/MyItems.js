@@ -86,7 +86,6 @@ const ComponentContainer = styled.div`
     text-decoration: none;
     height: 100vh;
     width: 100%;
-    /* position: fixed; */
 
     h1{
         font-size: 60px;

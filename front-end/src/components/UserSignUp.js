@@ -11,9 +11,6 @@ function UserSignUp()   {
         password: ''
     })
 
-    const [error, setError] = useState('');
-
-
     const handleChange = (e) => {
         setCredentials({
             ...credentials,
@@ -26,6 +23,7 @@ function UserSignUp()   {
            axiosWithAuth()
            .post('/api/auth/register', credentials)
            .then(resp => {
+               console.log(resp);
                localStorage.setItem('username', resp.data.username);
                localStorage.setItem('password', resp.data.password);
                localStorage.setItem('token', resp.data.token);
@@ -41,8 +39,6 @@ function UserSignUp()   {
 
             <div className = 'User'>
                 <h1 className = 'title'>Sign Up Below</h1>
-                    {/* <h2 className = 'TextBox'>Name: <input className = "Name"></input> </h2>
-                    <h2 className = 'TextBox'>Password: <input className = "Password"></input> </h2> */}
                     <form onSubmit={handleSubmit}>
                         <label>Username:
                             <input
@@ -60,12 +56,8 @@ function UserSignUp()   {
                         </label>
                         <button className = "CreateAccountButton2">Create Account</button>
                     </form>
-                    {error && <p>{error}</p>}
             </div>
-
-
-        </div>
-            
+        </div> 
     )
 }
 

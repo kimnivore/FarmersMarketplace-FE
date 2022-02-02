@@ -37,7 +37,6 @@ const CreateItem = () => {
             .catch(err => {
                 console.log(err);
             })
-
     }
 
 
@@ -101,8 +100,6 @@ const ComponentContainer = styled.div`
     text-decoration: none;
     height: 100vh;
     width: 100%;
-    /* position: fixed; */
-
 
     h1{
     font-size: 60px;
@@ -111,6 +108,7 @@ const ComponentContainer = styled.div`
     margin: auto;
     width: 100%;
     align-items: center;
+    color: white;
     }
 
     .form-container {
