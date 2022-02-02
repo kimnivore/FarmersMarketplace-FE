@@ -43,6 +43,7 @@ const CreateItem = () => {
             .then(resp => {
                 console.log(resp);
                 addItem();
+                setItems(resp.data);
                 push('/my-items');
             })
             .catch(err => {
