@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 
 const MyItems = () => {
     const [items, setItems ] = useState([]);
     const { push } = useHistory();
-    // const { id } = useParams();
+    const { item_id } = useParams();
    
     useEffect(() => {
         axiosWithAuth()
@@ -26,15 +26,25 @@ const MyItems = () => {
 
     // const handleDelete = (id) => {
     //     axiosWithAuth()
-    //     .delete(`/orders/${id}`)
+    //     .delete(`/api/items/${id}`)
     //     .then(resp => {
+    //         console.log(resp);
     //         deleteItem(id);
     //         push('/my-items');
     //     })
     //     .catch(err => {
-    //         console.log(err.response);
+    //         console.log(err);
     //     })
     // }
+
+    const handleDelete = () => {
+        axiosWithAuth()
+        .delete(`/api/items/${item_id}`)
+        .then(resp => {
+            setItems(resp.data);
+            push('/my-items');
+        })
+    }
 
     const handleAdd = () => {
         push('/create-item');
@@ -58,6 +68,7 @@ const MyItems = () => {
                                     <h3>Price: ${item.item_price}</h3>
                                     <p>Description: {item.item_description}</p>
                                     {/* <button onClick={() => {handleDelete(item.id)}}>Delete</button> */}
+                                    <button onClick={handleDelete}>Delete</button>
                                 </div>
                                 )
                         })
