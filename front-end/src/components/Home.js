@@ -50,7 +50,7 @@ function Home()   {
     return (
         <div className='HomePage'>
             <h1 className='Title'>African Market Place</h1>
-                <p className='Intro'>INTERESTED IN BUYING OR SELLING GOODS IN YOUR AREA?</p>
+                <p className='Intro'>Empowering small business owners </p>
                     <h2 className='Instructions'>Login Or Create an Account</h2>
                     <form onSubmit={handleSubmit}>
                         <label>Username:

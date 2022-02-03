@@ -10,6 +10,7 @@ import Home from './components/Home';
 import UserSignUp from './components/UserSignUp';
 import CreateItem from './components/CreateItem';
 import MyItems from './components/MyItems';
+import Marketplace from './components/Marketplace';
 import Logout from './components/Logout';
 
 
@@ -29,7 +30,7 @@ function App() {
         </HeaderStyle>
         <Switch>
           <Route path='/logout' component={Logout} />
-          <PrivateRoute path='/marketplace' />
+          <PrivateRoute path='/marketplace' component={Marketplace}/>
           <PrivateRoute path='/my-items' component={MyItems} />
           <PrivateRoute path='/create-item' component={CreateItem}/>
           <Route path='/signup' component={UserSignUp}/>
