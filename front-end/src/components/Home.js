@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import axiosWithAuth from '../utils/axiosWithAuth';
+import axios from 'axios';
 import validation from './validations/validation';
 
 const initialFormValues = {
@@ -27,14 +27,11 @@ function Home()   {
     const handleSubmit = (e) => {
         e.preventDefault();
         setFormErrors(validation(formValues))
-        axiosWithAuth()
-       .post('/api/auth/login', formValues)
+        axios.post('https://backend-african-marketplace.herokuapp.com/api/auth/login', formValues)
        .then(resp => {
-           console.log(resp);
-           localStorage.setItem('username', resp.data.username);
-           localStorage.setItem('password', resp.data.password);
            localStorage.setItem('token', resp.data.token);
-           push('/my-items');
+           localStorage.setItem('user_id', resp.data.user_id);
+           push('/marketplace');
        })
        .catch(err => {
            console.log(err);

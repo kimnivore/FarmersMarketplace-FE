@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 const MyItems = () => {
     const [items, setItems ] = useState([]);
     const { push } = useHistory();
-    const { id } = useParams();
+    // const { id } = useParams();
    
     useEffect(() => {
         axiosWithAuth()
-        .get('/api/items')
+        .get('/api/items/')
         .then(resp => {
-            console.log(resp);
+            // console.log(resp);
             setItems(resp.data);
         })
         .catch(err => {
