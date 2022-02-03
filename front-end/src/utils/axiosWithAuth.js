@@ -2,11 +2,12 @@ import axios from 'axios';
 
 const axiosWithAuth = () => {
     const token = localStorage.getItem('token');
-    const id = localStorage.getItem('user_id')
+    const user_id = localStorage.getItem('user_id');
 
     return axios.create({
         headers: {
-            authorization: token, id
+            authorization: token, 
+            user_id: user_id
         },
         baseURL: 'https://backend-african-marketplace.herokuapp.com'
     });
