@@ -33,16 +33,13 @@ const CreateItem = () => {
            [e.target.name]: e.target.value
        });
     }
-    const addItem = () => {
-        setItems({ ...items, item })
-    }
+   
     const handleSubmit = (e) => {
         e.preventDefault();
             axiosWithAuth()
-            .post('/api/items', item)
+            .post('/api/items/', item)
             .then(resp => {
                 console.log(resp);
-                addItem();
                 setItems(resp.data);
                 push('/my-items');
             })

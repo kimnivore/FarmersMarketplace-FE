@@ -30,11 +30,11 @@ function Home()   {
         axiosWithAuth()
        .post('/api/auth/login', formValues)
        .then(resp => {
-           console.log(resp);
+        //    console.log(resp);
            localStorage.setItem('username', resp.data.username);
            localStorage.setItem('password', resp.data.password);
            localStorage.setItem('token', resp.data.token);
-           push('/my-items');
+           push('/marketplace');
        })
        .catch(err => {
            console.log(err);
