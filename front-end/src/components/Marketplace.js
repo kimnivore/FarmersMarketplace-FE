@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
-const MyItems = () => {
+const Marketplace = () => {
     const [items, setItems ] = useState([]);
     const { push } = useHistory();
-    const { id } = useParams();
-   
+
     useEffect(() => {
         axiosWithAuth()
         .get('/api/items')
         .then(resp => {
-            console.log(resp);
             setItems(resp.data);
         })
         .catch(err => {
@@ -21,33 +19,11 @@ const MyItems = () => {
         })
     }, []);
 
-    // const deleteItem = (id) => {
-    //     setItems(items.filter(item =>(item.item_id !== Number(id))));
-    // }
+return (
 
-    // const handleDelete = (id) => {
-    //     axiosWithAuth()
-    //     .delete(`/orders/${id}`)
-    //     .then(resp => {
-    //         deleteItem(id);
-    //         push('/my-items');
-    //     })
-    //     .catch(err => {
-    //         console.log(err.response);
-    //     })
-    // }
-
-    const handleAdd = () => {
-        push('/create-item');
-    }
-
-    return (
-        <ComponentContainer>        
-            <h1>My Items</h1>
+    <ComponentContainer>
+        <h1>MarketPlace</h1>
             <div className='body'>
-                <div >
-                    <button className='button' onClick={() => {handleAdd()}}>Add New Item</button>
-                </div>
                 <div className='all-items'>
                     {
                         items.map(item => {
@@ -64,16 +40,15 @@ const MyItems = () => {
                         })
                     }
                 </div>
-                
-        </div>
-        </ComponentContainer>
-    )
+            </div>
+    </ComponentContainer>
+)
 }
 
-export default MyItems;
+export default Marketplace;
 
 const ComponentContainer = styled.div`
-    background-color: #386FA4;
+    background-color: #433E0E;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,7 +97,7 @@ const ComponentContainer = styled.div`
         margin: 10px;
         padding: 20px;
         width: 25%;
-        background-color: #84D2F6;
+        background-color: #D0C88E;
     }
     img{
         width: 100px;
