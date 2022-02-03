@@ -13,7 +13,6 @@ const MyItems = () => {
         axiosWithAuth()
         .get('/api/items/')
         .then(resp => {
-            // console.log(resp);
             setItems(resp.data);
         })
         .catch(err => {
