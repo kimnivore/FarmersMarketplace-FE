@@ -8,9 +8,10 @@ import Pic from '../images/pic02.jpeg';
 const CreateItem = () => {
     const {push} = useHistory();
     const [item, setItem] = useState({
-        name: '',
-        price: '',
-        description: '',
+        item_name: '',
+        item_description: '',
+        item_price: '',
+        item_category: '',
     });
 
     const [items, setItems] = useState([]);
@@ -33,9 +34,11 @@ const CreateItem = () => {
            [e.target.name]: e.target.value
        });
     }
+    
    
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(item);
             axiosWithAuth()
             .post('/api/items/', item)
             .then(resp => {
@@ -60,7 +63,7 @@ const CreateItem = () => {
                         <label>Item Name:
                             <input
                                 type='text'
-                                name='name'
+                                name='item_name'
                                 onChange={handleChange}
                             />
                         </label>
@@ -69,7 +72,7 @@ const CreateItem = () => {
                         <label>Category:
                             <input
                                 type='text'
-                                name='category'
+                                name='item_category'
                                 onChange={handleChange}
                             />
                         </label>
@@ -78,7 +81,7 @@ const CreateItem = () => {
                         <label>Price:
                             <input
                                 type='text'
-                                name='price'
+                                name='item_price'
                                 onChange={handleChange}
                             />
                         </label>
@@ -87,7 +90,7 @@ const CreateItem = () => {
                         <label>Description:
                             <input 
                                 type='text'
-                                name='description'
+                                name='item_description'
                                 onChange={handleChange}
                             />
                         </label>
