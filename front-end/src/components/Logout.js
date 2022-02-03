@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 const Logout = () => {
     const { push } = useHistory();
     localStorage.removeItem('token');
+    localStorage.removeItem('user_id');
     push('/');
     
 

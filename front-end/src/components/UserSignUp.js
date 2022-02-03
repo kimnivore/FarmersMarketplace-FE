@@ -31,7 +31,6 @@ function UserSignUp()   {
            axiosWithAuth()
            .post('/api/auth/register', formValues)
            .then(resp => {
-            //    console.log(resp);
                localStorage.setItem('username', resp.data.username);
                localStorage.setItem('password', resp.data.password);
                localStorage.setItem('token', resp.data.token);

@@ -20,7 +20,6 @@ const CreateItem = () => {
       axiosWithAuth()
       .get('/api/items')
       .then(resp => {
-          console.log(resp);
           setItems(resp.data);
       })
       .catch(err => {
@@ -38,11 +37,9 @@ const CreateItem = () => {
    
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(item);
             axiosWithAuth()
             .post('/api/items/', item)
             .then(resp => {
-                console.log(resp);
                 setItems(resp.data);
                 push('/my-items');
             })
