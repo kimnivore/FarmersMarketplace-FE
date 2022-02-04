@@ -20,31 +20,33 @@ const MyItems = () => {
         })
     }, []);
 
-    // const deleteItem = (id) => {
-    //     setItems(items.filter(item =>(item.item_id !== Number(id))));
-    // }
+    const deleteItem = (item_id) => {
+        setItems(items.filter(item =>(item.item_id !== Number(item_id))));
+    }
 
-    // const handleDelete = (id) => {
-    //     axiosWithAuth()
-    //     .delete(`/api/items/${id}`)
-    //     .then(resp => {
-    //         console.log(resp);
-    //         deleteItem(id);
-    //         push('/my-items');
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     })
-    // }
-
-    const handleDelete = () => {
+    const handleDelete = (item_id) => {
         axiosWithAuth()
         .delete(`/api/items/${item_id}`)
         .then(resp => {
-            setItems(resp.data);
+            console.log(resp);
+            deleteItem(item_id);
+            setItems(resp.data)
             push('/my-items');
         })
+        .catch(err => {
+            console.log(err);
+        })
     }
+
+    // const handleDelete = () => {
+    //     axiosWithAuth()
+    //     .delete(`/api/items/${item_id}`)
+    //     .then(resp => {
+    //         console.log(resp);
+    //         setItems(resp.data);
+    //         push('/my-items');
+    //     })
+    // }
 
     const handleAdd = () => {
         push('/create-item');
