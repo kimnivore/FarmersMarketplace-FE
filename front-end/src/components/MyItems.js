@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { useHistory, useParams } from 'react-router-dom';
-
-
 const MyItems = () => {
     const [items, setItems ] = useState([]);
     const { push } = useHistory();
@@ -13,6 +11,7 @@ const MyItems = () => {
         axiosWithAuth()
         .get('/api/items/')
         .then(resp => {
+            console.log(resp.data);
             setItems(resp.data);
         })
         .catch(err => {
@@ -20,38 +19,26 @@ const MyItems = () => {
         })
     }, []);
 
-    const deleteItem = (item_id) => {
+
+    const deleteItem = (item_id ) => {
         setItems(items.filter(item =>(item.item_id !== Number(item_id))));
     }
 
     const handleDelete = (item_id) => {
-        axiosWithAuth()
-        .delete(`/api/items/${item_id}`)
-        .then(resp => {
-            console.log(resp);
-            deleteItem(item_id);
-            setItems(resp.data)
-            push('/my-items');
+            axiosWithAuth()
+            .delete(`/api/items/${item_id}`)
+            .then(resp => {
+                deleteItem(item_id);
+                push('/my-items');
         })
-        .catch(err => {
-            console.log(err);
+            .catch(err => {
+                console.log(err);
         })
     }
-
-    // const handleDelete = () => {
-    //     axiosWithAuth()
-    //     .delete(`/api/items/${item_id}`)
-    //     .then(resp => {
-    //         console.log(resp);
-    //         setItems(resp.data);
-    //         push('/my-items');
-    //     })
-    // }
 
     const handleAdd = () => {
         push('/create-item');
     }
-
     return (
         <ComponentContainer>        
             <h1>My Items</h1>
@@ -69,9 +56,8 @@ const MyItems = () => {
                                     <h3>Category: {item.item_category}</h3>
                                     <h3>Price: ${item.item_price}</h3>
                                     <p>Description: {item.item_description}</p>
-                                    {/* <button onClick={() => {handleDelete(item.id)}}>Delete</button> */}
-                                    <button onClick={handleDelete}>Delete</button>
-                                </div>
+                                    <button onClick={() => {handleDelete(item.item_id)}}>Delete</button>
+                                    </div>
                                 )
                         })
                     }
@@ -81,8 +67,8 @@ const MyItems = () => {
         </ComponentContainer>
     )
 }
-
 export default MyItems;
+
 
 const ComponentContainer = styled.div`
     background-color: #386FA4;
@@ -91,6 +77,7 @@ const ComponentContainer = styled.div`
     align-items: center;
     justify-content: center;
     margin: auto;
+
     font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     font-weight: 400;
@@ -99,7 +86,6 @@ const ComponentContainer = styled.div`
     min-width: 100%;
     min-height: 100vh;
     border: 1px solid black;
-
     h1{
         font-size: 60px;
         font-weight: 400;
@@ -141,7 +127,6 @@ const ComponentContainer = styled.div`
         height: 100px;
         border: #386FA4 solid 1px;
     }
-
     button {
         border-radius: 10%;
         font-size: 1rem;
@@ -171,7 +156,7 @@ const ComponentContainer = styled.div`
         background: #F4B860;
         box-shadow: 0 5px #ffd819;
         margin-bottom: 40px;
-        }
+    }
     .button:hover {
         box-shadow: 0 3px #ffd819;
         top: 1px;
