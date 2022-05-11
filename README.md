@@ -21,18 +21,8 @@ Sauti Africa empowers small business owners, particularly women, to improve thei
 
 ### *Heroku API*
 
-Deployed URL: https://front-end-rho-gold.vercel.app/
-
 
 # *Meet the Team*
-
-***David Spear
-Front End React I Engineer***
-
-Github: https://github.com/spearoxi
-
-LinkedIn: https://www.linkedin.com/in/david-j-spear/
-
 
 ***Kim Nguyen
 Front End Architect React II Engineer***
@@ -41,26 +31,3 @@ Github: https://github.com/kimnivore
 
 LinkedIn: https://www.linkedin.com/in/kimnguyenshoung/
 
-
-***Leila Arkadan 
-Backend Engineer***
-
-Github: https://github.com/lailaarkadan
-
-LinkedIn: https://www.linkedin.com/in/laila-arkadan-27337a74/
-
-
-***Peter Conley
-Backend Engineer***
-
-Github: https://github.com/peterdavidconley
-
-LinkedIn: https://www.linkedin.com/in/peter-conley/
-
-
-***Hamza Sajid
-Backend Engineer***
-
-Github: https://github.com/hmzsjd
-
-LinkedIn: https://www.linkedin.com/in/hmzsjd/
